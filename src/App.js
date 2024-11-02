@@ -1,19 +1,16 @@
+import Head from "./components/Head";
+import Navbar from "./components/Navbar";
+import MobileMenu from "./components/MobileMenu";
+import Hero from "./components/Hero";
+import "./index.css";
+
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Head />
+      <MobileMenu />
+      <Navbar />
+      <Hero />
     </div>
   );
 }
