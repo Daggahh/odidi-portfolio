@@ -4,6 +4,13 @@ import { ReactTyped } from "react-typed";
 import "../styles/Hero.css";
 
 function Hero() {
+  const scrollToPortfolio = () => {
+    const portfolioSection = document.getElementById("portfolio-section");
+    if (portfolioSection) {
+      portfolioSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <div
       className="hero-section"
@@ -63,12 +70,12 @@ function Hero() {
         </div>
       </div>
 
-      <a href="#portfolio-section" className="mouse-wrap">
+      <div onClick={scrollToPortfolio} className="mouse-wrap">
         <span className="mouse">
           <span className="scroll"></span>
         </span>
         <span className="mouse-label">Scroll</span>
-      </a>
+      </div>
     </div>
   );
 }

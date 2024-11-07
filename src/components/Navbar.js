@@ -1,8 +1,8 @@
 import React from "react";
-import Logo from "./TempLogo";
+import { GiSharpSmile, GiEvilEyes } from "react-icons/gi";
 import "../styles/Navbar.css";
 
-function Navbar() {
+function Navbar({ showFirstLogo }) {
   return (
     <nav className="navbar">
       <div className="navbar-container">
@@ -23,15 +23,13 @@ function Navbar() {
                 About
               </a>
             </li>
-            <li>
-              <a href="#services-section" className="nav-link">
-                Services
-              </a>
-            </li>
           </ul>
         </div>
 
-        <Logo />
+        <div className="logo">
+          {showFirstLogo ? <GiSharpSmile /> : <GiEvilEyes />}
+          Odidi
+        </div>
 
         <div className="navbar-right">
           <ul className="navbar-links">
@@ -41,8 +39,8 @@ function Navbar() {
               </a>
             </li>
             <li>
-              <a href="#testimonial-section" className="nav-link">
-                Experience
+              <a href="#services-section" className="nav-link">
+                Services
               </a>
             </li>
             <li>

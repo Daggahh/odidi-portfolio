@@ -14,6 +14,42 @@
   line-height: 30px;
 }
 
+.scrolled {
+  background-color: white;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  position: fixed;
+  right: 0;
+  left: 0;
+  top: 0;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  width: 100%;
+
+  .navbar-links .nav-link {
+    color: #000;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .navbar-links .nav-link:hover {
+    color: red;
+  }
+
+  .logo {
+    color: #000;
+  }
+}
+
+.logo {
+  font-size: 3rem;
+  font-weight: 700;
+  font-family: "Raleway", sans-serif;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
 .navbar-container {
   display: flex;
   justify-content: space-between;
@@ -61,6 +97,24 @@
   }
   .navbar-links {
     display: none;
+  }
+}
+
+@media (min-width: 576px) {
+  .navbar-container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .navbar-container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .navbar-container {
+    max-width: 960px;
   }
 }
 
