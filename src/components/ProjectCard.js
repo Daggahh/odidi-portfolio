@@ -6,7 +6,6 @@ function ProjectCard({ project, itemId }) {
     <div className="project-card" id={itemId}>
       <a href={project.link} className="portfolio-item">
         <div className="overlay">
-          <span className="wrap-icon icon-photo2"></span>
           <div className="portfolio-item-content">
             <h3>{project.title}</h3>
             <p>{project.description}</p>

@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import MobileMenu from "./components/MobileMenu";
 import Hero from "./components/Hero";
 import Portfolio from "./components/Portfolio";
+import Skills from "./components/Skills";
 import "./index.css";
 
 function App() {
@@ -45,6 +46,7 @@ function App() {
       <Navbar showFirstLogo={showFirstLogo} />
       <Hero id="hero-section" />
       <Portfolio />
+      <Skills />
     </div>
   );
 }

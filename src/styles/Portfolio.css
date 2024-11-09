@@ -1,10 +1,14 @@
 .portfolio-section {
   padding: 3.5rem 0;
   background-color: #000;
+  border-bottom: rgb(46, 46, 46) 0.1px solid;
+  border-right: rgb(46, 46, 46) 0.1px solid;
+  border-left: rgb(46, 46, 46) 0.1px solid;
 }
 
 .portfolio-container {
   width: 100%;
+  border: 0.1px solid rgb(46, 46, 46);
   padding-right: 15px;
   padding-left: 15px;
   margin: 0 auto;
