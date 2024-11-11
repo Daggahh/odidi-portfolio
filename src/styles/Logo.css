@@ -1,0 +1,9 @@
+.logo {
+  font-size: 3rem;
+  font-weight: 700;
+  font-family: "Raleway", sans-serif;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
