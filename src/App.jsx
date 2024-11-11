@@ -5,6 +5,7 @@ import Hero from "./components/Hero";
 import Portfolio from "./components/Portfolio";
 import Skills from "./components/Skills";
 import About from "./components/About";
+import Services from "./components/Services";
 import "./index.css";
 
 function App() {
@@ -49,6 +50,7 @@ function App() {
       <Portfolio />
       <Skills />
       <About />
+      <Services />
     </div>
   );
 }

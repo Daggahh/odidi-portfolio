@@ -1,0 +1,134 @@
+.services-section {
+  padding-bottom: 3.5rem;
+}
+
+.section-container {
+  width: 100%;
+  padding: 0 15px;
+  margin: 0 auto;
+  border: 0.1px solid rgb(46, 46, 46);
+}
+
+.section-heading-wrap {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.heading-h2 {
+  font-size: 32px;
+  color: #fff;
+  font-weight: 900;
+}
+
+.gsap-reveal {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: black;
+  transform: translateX(0);
+  transition: transform 1s ease;
+}
+
+.services-row {
+  margin-left: -60px !important;
+  display: grid;
+  grid-template-columns: repeat(3, 33.3%);
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+#item-0 {
+  grid-row-start: 1;
+  grid-column-start: 1;
+
+  grid-row-end: 2;
+  grid-column-end: 2;
+}
+#item-1 {
+  grid-row-start: 1;
+  grid-column-start: 2;
+
+  grid-row-end: 2;
+  grid-column-end: 3;
+}
+#item-2 {
+  grid-row-start: 1;
+  grid-column-start: 3;
+
+  grid-row-end: 2;
+  grid-column-end: 4;
+}
+#item-3 {
+  grid-row-start: 2;
+  grid-column-start: 1;
+
+  grid-row-end: 3;
+  grid-column-end: 2;
+}
+#item-4 {
+  grid-row-start: 2;
+  grid-column-start: 2;
+
+  grid-row-end: 3;
+  grid-column-end: 3;
+}
+
+.service-item {
+  margin-bottom: 1.5rem !important;
+  background-color: inherit;
+  padding-right: 60px !important;
+  padding-left: 60px !important;
+}
+
+.wrap-icon {
+  margin-bottom: 1rem;
+}
+
+.wrap-icon img {
+  vertical-align: middle;
+}
+
+.service-item h3 {
+  color: #fff;
+  margin-bottom: 1rem;
+  font-size: 22px;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+.service-item p {
+  font-size: 16px;
+  color: #ccc;
+}
+
+@media (min-width: 576px) {
+  .section-container {
+    max-width: 540px;
+  }
+}
+@media (min-width: 768px) {
+  .section-container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .section-container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .section-container {
+    max-width: 1140px;
+  }
+}

@@ -1,21 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import dividerImage from "../assets/divider.png";
-import optionsIcon from "../assets/001-options.svg";
-import chatIcon from "../assets/002-chat.svg";
-import contactBookIcon from "../assets/003-contact-book.svg";
-import lineChartIcon from "../assets/005-line-chart.svg";
-import goalIcon from "../assets/006-goal.svg";
 import "../styles/Services.css";
 
 function Services() {
+  useEffect(() => {
+    const covers = document.querySelectorAll(".cover");
+    covers.forEach((cover) => {
+      setTimeout(() => {
+        cover.style.transform = "translateX(101%)";
+      }, 300);
+    });
+  }, []);
+
   return (
     <section className="services-section" id="services-section">
       <div className="section-container">
-
         <div className="section-heading-wrap">
           <h2 className="heading-h2">
-            <span className="gsap-reveal">My Services</span>
-            <span className="cover"></span>
+            <span className="gsap-reveal">
+              My Services
+              <span className="cover"></span>
+            </span>
           </h2>
           <span className="gsap-reveal">
             <img src={dividerImage} alt="divider" width="76" />
@@ -24,44 +29,95 @@ function Services() {
         </div>
 
         <div className="services-row">
-          <div className="service-item" data-aos="fade-up" data-aos-delay="0">
+          <div className="service-item item-0">
             <div className="wrap-icon">
-              <img src={optionsIcon} alt="Backend Development" width="45" />
+              <img
+                src="/icons8-developer-45.png"
+                alt="Frontend Development"
+                width="45"
+              />
             </div>
             <h3>Frontend Development</h3>
-            <p>As a frontend developer, I specialize in building visually appealing, user-friendly interfaces that elevate user experience. My expertise includes HTML, CSS, JavaScript, and React, allowing me to create interactive and responsive designs. I take pride in crafting intuitive layouts that engage users and bring concepts to life, focusing on seamless performance across all devices and platforms.</p>
+            <p>
+              As a frontend developer, I specialize in building visually
+              appealing, user-friendly interfaces that elevate user experience.
+              My expertise includes HTML, CSS, JavaScript, and React, allowing
+              me to create interactive and responsive designs. I take pride in
+              crafting intuitive layouts that engage users and bring concepts to
+              life, focusing on seamless performance across all devices and
+              platforms.
+            </p>
           </div>
 
-          <div className="service-item" data-aos="fade-up" data-aos-delay="100">
+          <div className="service-item item-1">
             <div className="wrap-icon">
-              <img src={chatIcon} alt="Database Design and Management" width="45" />
+              <img
+                src="/icons8-data-analyst-45 (1).png"
+                alt="Data Analyst Enthusiast"
+                width="45"
+              />
             </div>
-            <h3>Database Design and <br /> Management</h3>
-            <p>Design, development, and management of databases using SQL and NoSQL, with experience in MySQL, PostgreSQL, SQLite, and MongoDB.</p>
+            <h3>Data Analyst Enthusiast</h3>
+            <p>
+              Data analytics drives my passion for uncovering insights that
+              inform strategic decision-making. I excel at collecting, cleaning,
+              and analyzing data to reveal trends and patterns. With a strong
+              foundation in Excel, SQL, and spreadsheets, I can transform raw
+              data into actionable intelligence, helping businesses make
+              data-driven choices that optimize processes and outcomes.
+            </p>
           </div>
 
-          <div className="service-item" data-aos="fade-up" data-aos-delay="200">
+          <div className="service-item item-2">
             <div className="wrap-icon">
-              <img src={contactBookIcon} alt="Frontend Development" width="45" />
+              <img
+                src="/icons8-typing-45.png"
+                alt="Data Entry Specialist"
+                width="45"
+              />
             </div>
-            <h3>Frontend <br /> Development</h3>
-            <p>Frontend development focusing on creating dynamic, responsive web pages that provide a smooth user experience.</p>
+            <h3>Data Entry Specialist</h3>
+            <p>
+              Precision and efficiency define my approach to data entry. I am
+              dedicated to ensuring accuracy in every task, whether it’s
+              managing large datasets, updating records, or verifying details.
+              My organizational skills and attention to detail ensure data is
+              reliably entered, maintained, and readily available, supporting
+              operational needs and decision-making processes.
+            </p>
           </div>
 
-          <div className="service-item" data-aos="fade-up" data-aos-delay="300">
+          <div className="service-item item-3">
             <div className="wrap-icon">
-              <img src={lineChartIcon} alt="Data Scientist" width="45" />
+              <img src="/icons8-stargaze-45.png" alt="Astrophile" width="45" />
             </div>
-            <h3>Data Scientist and <br /> Machine Learning Noob</h3>
-            <p>Aspiring data scientist working with predictive models and AI concepts like supervised and unsupervised learning, with a growing knowledge of statistics and data analysis.</p>
+            <h3>Astrophile</h3>
+            <p>
+              My fascination with the universe drives my love for astronomy. As
+              an astrophile, I am captivated by the mysteries of the cosmos—from
+              stargazing to studying celestial phenomena. This passion keeps me
+              curious and motivated to learn more about our place in the
+              universe, adding a sense of wonder to my everyday life.
+            </p>
           </div>
 
-          <div className="service-item" data-aos="fade-up" data-aos-delay="400">
+          <div className="service-item item-4">
             <div className="wrap-icon">
-              <img src={goalIcon} alt="Music Lover" width="45" />
+              <img
+                src="/icons8-music-listening-45 (1).png"
+                alt="Music Lover"
+                width="45"
+              />
             </div>
-            <h3>Music <br /> Lover</h3>
-            <p>Passionate about music, with interests in various genres and experience playing instruments like the piano and saxophone.</p>
+            <h3>Music Lover</h3>
+            <p>
+              Music has always been a source of inspiration and creativity for
+              me. I enjoy exploring various genres, diving into the artistry
+              behind each melody, and staying current with the latest in the
+              music world. Whether it's discovering new artists or appreciating
+              timeless classics, music adds a dynamic dimension to my life that
+              fuels my creativity and motivation.
+            </p>
           </div>
         </div>
       </div>
