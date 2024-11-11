@@ -1,9 +1,6 @@
 .portfolio-section {
   padding: 3.5rem 0;
   background-color: #000;
-  border-bottom: rgb(46, 46, 46) 0.1px solid;
-  border-right: rgb(46, 46, 46) 0.1px solid;
-  border-left: rgb(46, 46, 46) 0.1px solid;
 }
 
 .portfolio-container {
@@ -84,13 +81,13 @@
   transform-origin: left;
   transition: transform 1s ease;
   z-index: 1;
-  will-change: transform;
 }
 
 .portfolio-wrapper {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(4, fit-content);
+  grid-template-rows: repeat(2, fit-content);
+  padding-bottom: 30px;
   grid-gap: 20px;
   width: 100%;
 
@@ -127,7 +124,7 @@
 
     grid-row-end: 3;
     grid-column-end: 3;
-    height: 200px;
+    height: fit-content;
   }
 
   #item-4 {
@@ -136,7 +133,7 @@
 
     grid-row-end: 3;
     grid-column-end: 4;
-    height: 200px;
+    height: 190px;
   }
 
   #item-5 {

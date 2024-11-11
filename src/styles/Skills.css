@@ -1,5 +1,5 @@
 .skills-section {
-  padding-bottom: 3.5rem ;
+  padding-bottom: 3.5rem;
 }
 
 .skills-container {
@@ -9,7 +9,6 @@
   margin-right: auto;
   height: 300px;
   border: 0.1px solid rgb(46, 46, 46);
-  border-top: none;
   padding-top: 30px;
   padding-left: 30px;
   padding-right: 30px;

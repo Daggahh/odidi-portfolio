@@ -1,46 +1,17 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import ProjectCard from "./ProjectCard";
 import projects from "../data/projects";
 import "../styles/Portfolio.css";
 
 function Portfolio() {
-  const sectionRef = useRef(null);
-  const [isVisible, setIsVisible] = useState(false);
-
   useEffect(() => {
-    // Intersection Observer to trigger animations when the section enters view
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true); // Set visible state to true when in view
-          observer.disconnect(); // Stop observing after triggering once
-        }
-      },
-      { threshold: 0.2 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
+    const covers = document.querySelectorAll(".cover");
+    covers.forEach((cover) => {
+      setTimeout(() => {
+        cover.style.transform = "translateX(101%)";
+      }, 300);
+    });
   }, []);
-
-  useEffect(() => {
-    // Trigger the cover effect when the section is visible
-    if (isVisible) {
-      const covers = document.querySelectorAll(".cover");
-      covers.forEach((cover, index) => {
-        setTimeout(() => {
-          cover.style.transform = "translateX(101%)"; // Run the cover effect
-        }, index * 300);
-      });
-    }
-  }, [isVisible]); // Only runs when `isVisible` changes
 
   const [activeFilter, setActiveFilter] = useState("all");
   const [hiddenObj, setHiddenObj] = useState(false);
@@ -58,11 +29,7 @@ function Portfolio() {
   );
 
   return (
-    <section
-      className="portfolio-section"
-      id="portfolio-section"
-      ref={sectionRef}
-    >
+    <section className="portfolio-section" id="portfolio-section">
       <div className="portfolio-container">
         <div className="portfolio-text">
           <h2 className="portfolio-text-h2">
