@@ -19,9 +19,9 @@
   width: 100%;
   height: 100%;
   background: #d63447;
-  transform: translateX(0);
+  /* transform: translateX(0);
   transform-origin: left;
-  transition: transform 1s ease;
+  transition: transform 1s ease; */
   z-index: 9; /* Ensures the cover is above the image but below the overlay */
 }
 

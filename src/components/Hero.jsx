@@ -6,7 +6,7 @@ import "../styles/Hero.css";
 
 function Hero() {
   const scrollToPortfolio = () => {
-    const portfolioSection = document.getElementById("portfolio-section");
+    const portfolioSection = document.getElementById("portfolio-container");
     if (portfolioSection) {
       portfolioSection.scrollIntoView({ behavior: "smooth" });
     }

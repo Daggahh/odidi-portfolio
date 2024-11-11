@@ -1,20 +1,37 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import ProjectCard from "./ProjectCard";
 import projects from "../data/projects";
 import "../styles/Portfolio.css";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 function Portfolio() {
-  useEffect(() => {
-    const covers = document.querySelectorAll(".cover");
-    covers.forEach((cover) => {
-      setTimeout(() => {
-        cover.style.transform = "translateX(101%)";
-      }, 300);
-    });
-  }, []);
-
+  const sectionRef = useRef(null);
   const [activeFilter, setActiveFilter] = useState("all");
   const [hiddenObj, setHiddenObj] = useState(false);
+
+  useEffect(() => {
+    const covers = document.querySelectorAll(".cover");
+
+    covers.forEach((cover) => {
+      gsap.fromTo(
+        cover,
+        { x: "0%" },
+        {
+          x: "101%",
+          duration: 1.2,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: cover,
+            start: "top 80%",
+            toggleActions: "play none none none",
+          },
+        }
+      );
+    });
+  }, []);
 
   const handleFilterClick = (event, filter) => {
     event.preventDefault();
@@ -29,8 +46,12 @@ function Portfolio() {
   );
 
   return (
-    <section className="portfolio-section" id="portfolio-section">
-      <div className="portfolio-container">
+    <section
+      className="portfolio-section"
+      id="portfolio-section"
+      ref={sectionRef}
+    >
+      <div className="portfolio-container" id="portfolio-container">
         <div className="portfolio-text">
           <h2 className="portfolio-text-h2">
             <span className="gsap-reveal">

@@ -6,6 +6,7 @@ import Portfolio from "./components/Portfolio";
 import Skills from "./components/Skills";
 import About from "./components/About";
 import Services from "./components/Services";
+import SoftSkills from "./components/SoftSkills";
 import "./index.css";
 
 function App() {
@@ -51,6 +52,7 @@ function App() {
       <Skills />
       <About />
       <Services />
+      <SoftSkills />
     </div>
   );
 }

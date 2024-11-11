@@ -1,0 +1,154 @@
+.soft-skills-section {
+  padding-bottom: 3.5rem;
+}
+
+.soft-skills-container {
+  background-color: black;
+  border: 0.1px solid rgb(46, 46, 46);
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.section-heading-wrap {
+  margin-bottom: 2rem;
+}
+
+.heading-h2 {
+  font-size: 32px;
+  color: #fff;
+  font-weight: 900;
+}
+
+.gsap-reveal {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: black;
+  /* transform: translateX(0);
+  transform-origin: left;
+  transition: transform 1s ease; */
+}
+
+.divider img {
+  margin-top: 1rem;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+/* SkillCard Styling */
+.counter-v1 {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.counter-v1:hover {
+  transform: translateY(-5px);
+}
+
+.number-wrap {
+  display: block;
+}
+
+.counter-v1 .number-wrap .number {
+  font-size: 69px;
+  font-weight: 900;
+  font-family: "Arimo", sans-serif;
+  color: #d63447;
+}
+
+.counter-v1 .number-wrap .append-text {
+  position: relative;
+  color: white;
+  top: -30px;
+  font-size: 28px;
+  font-weight: 900;
+}
+
+.counter-label {
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  font-size: 11px;
+  font-weight: 900;
+  color: #fff;
+  margin-right: 17px;
+}
+
+/* Animation */
+/* [data-aos="fade-up"] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+[data-aos="fade-up"].aos-animate {
+  opacity: 1;
+  transform: translateY(0);
+} */
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .heading-h2 {
+    font-size: 2rem;
+  }
+
+  .counter-v1 {
+    padding: 15px;
+  }
+
+  .number-wrap {
+    font-size: 1.5rem;
+  }
+
+  .number-counter {
+    font-size: 2.5rem;
+  }
+
+  .append-text {
+    font-size: 1.25rem;
+  }
+
+  .counter-label {
+    font-size: 0.875rem;
+  }
+}
+
+@media (min-width: 576px) {
+  .soft-skills-container {
+    max-width: 540px;
+  }
+}
+@media (min-width: 768px) {
+  .soft-skills-container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .soft-skills-container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .soft-skills-container {
+    max-width: 1140px;
+  }
+}

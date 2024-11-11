@@ -36,8 +36,8 @@
   text-align: center;
 }
 
-.red-dot{
-  color: #D63447;  
+.red-dot {
+  color: #d63447;
 }
 
 .subheading {
@@ -77,7 +77,7 @@
   align-items: center;
   flex-direction: column;
   position: absolute;
-  bottom: 20px;
+  bottom: 25px;
   left: 50%;
   transform: translateX(-50%);
   text-align: center;

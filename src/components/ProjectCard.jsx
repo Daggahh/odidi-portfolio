@@ -1,18 +1,34 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import "../styles/ProjectCard.css";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 function ProjectCard({ project, itemId }) {
+  const cardRef = useRef(null);
+
   useEffect(() => {
-    const covers = document.querySelectorAll(".cover-red");
-    covers.forEach((cover) => {
-      setTimeout(() => {
-        cover.style.transform = "translateX(200%)";
-      }, 300);
-    });
+    const coverRed = cardRef.current.querySelector(".cover-red");
+
+    gsap.fromTo(
+      coverRed,
+      { x: "0%" },
+      {
+        x: "102%",
+        duration: 1.5,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: coverRed,
+          start: "top 80%",
+          toggleActions: "play none none none",
+        },
+      }
+    );
   }, []);
 
   return (
-    <div className="project-card" id={itemId}>
+    <div className="project-card" id={itemId} ref={cardRef}>
       <span className="cover-red"></span>
       <a href={project.link} className="portfolio-item">
         <div className="overlay">
