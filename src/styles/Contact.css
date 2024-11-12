@@ -66,6 +66,11 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 }
 
+.form-outline-style-v1 .form-group .form-control[text] {
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
 .form-control {
   display: block;
   width: 100%;
@@ -78,6 +83,19 @@
 .form-control:focus {
   border: none !important;
   border-bottom: 1px solid rgba(255, 255, 255) !important;
+}
+
+.form-item label.field--not-empty {
+  transform: translateY(-20px);
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+  font-size: 10px;
+}
+
+.form-error {
+  color: #d63447;
+  font-size: 12px;
+  margin-top: 5px;
 }
 
 textarea.form-control {

@@ -14,7 +14,7 @@
   line-height: 30px;
 }
 
-.logo-link{
+.logo-link {
   text-decoration: none !important;
 }
 
@@ -28,10 +28,9 @@
   gap: 5px;
 }
 
-.red-dot{
-  color: #D63447;  
+.red-dot {
+  color: #d63447;
 }
-
 
 .navbar-container {
   display: flex;
@@ -95,10 +94,24 @@
     color: red;
   }
 
-  .logo-link{
+  .nav-link {
+    position: relative;
+  }
+
+  .nav-link.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 2px;
+    background-color: #d63447;
+  }
+
+  .logo-link {
     text-decoration: none;
   }
-  
+
   .logo {
     color: #000;
   }

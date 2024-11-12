@@ -9,10 +9,12 @@ gsap.registerPlugin(ScrollTrigger);
 
 function AboutMe() {
   const sectionRef = useRef(null);
+  const imgRef = useRef(null);
 
   useEffect(() => {
     const coverRed = document.querySelector(".cover-red-img");
 
+    // ScrollTrigger for the coverRed element (X position animation)
     gsap.fromTo(
       coverRed,
       { x: "0%" },
@@ -24,6 +26,31 @@ function AboutMe() {
           trigger: coverRed,
           start: "top 80%",
           toggleActions: "play none none none",
+        },
+      }
+    );
+
+    // GSAP animation template for the image scaling effect with 'beat' animation
+    gsap.fromTo(
+      imgRef.current,
+      { opacity: 0, scale: 1 },
+      {
+        opacity: 1,
+        scale: 1.05,
+        duration: 0.6,
+        ease: "ease-in-out",
+        scrollTrigger: {
+          trigger: imgRef.current,
+          start: "top 80%",
+          toggleActions: "play none none none",
+        },
+        onComplete: () => {
+          // After the animation, scale back to 1 for the "beat" effect
+          gsap.to(imgRef.current, {
+            scale: 1,
+            duration: 0.6,
+            ease: "ease-out",
+          });
         },
       }
     );
@@ -51,12 +78,12 @@ function AboutMe() {
               <div className="reveal-wrap">
                 <span className="cover-red-img"></span>
                 <div className="reveal-content">
-                  {" "}
                   <img
                     src={freshboy}
                     alt="About me"
                     className="img-fluid"
-                  />{" "}
+                    ref={imgRef} // Assigning the ref here for GSAP
+                  />
                 </div>
               </div>
             </figure>

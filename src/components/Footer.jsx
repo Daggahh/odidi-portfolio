@@ -1,36 +1,12 @@
-import React, { useRef, useEffect } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import React from "react";
 import { FaLinkedin, FaGithub, FaTwitter, FaInstagram } from "react-icons/fa";
 import "../styles/Footer.css";
 
-gsap.registerPlugin(ScrollTrigger);
-
 const Footer = () => {
-  const footerRef = useRef(null);
-
-  useEffect(() => {
-    gsap.fromTo(
-      footerRef.current,
-      { opacity: 0, y: 50 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: footerRef.current,
-          start: "top 90%",
-          toggleActions: "play none none none",
-        },
-      }
-    );
-  }, []);
-
   return (
-    <footer className="footer" ref={footerRef}>
+    <footer className="footer">
       <ul className="social-icon">
-        <li>
+        <li className="fa-icon">
           <a
             href="https://www.linkedin.com/in/odidihope/"
             className="icon-linkedin"
@@ -39,7 +15,7 @@ const Footer = () => {
             <FaLinkedin style={{ color: "#d63447", fill: "#d63447" }} />
           </a>
         </li>
-        <li>
+        <li className="fa-icon">
           <a
             href="https://github.com/Daggahh"
             className="icon-github"
@@ -48,7 +24,7 @@ const Footer = () => {
             <FaGithub style={{ color: "#d63447", fill: "#d63447" }} />
           </a>
         </li>
-        <li>
+        <li className="fa-icon">
           <a
             href="https://x.com/bouffdaddy_"
             className="icon-twitter"
@@ -57,7 +33,7 @@ const Footer = () => {
             <FaTwitter style={{ color: "#d63447", fill: "#d63447" }} />
           </a>
         </li>
-        <li>
+        <li className="fa-icon">
           <a
             href="https://www.instagram.com/daggahhh/"
             className="icon-instagram"

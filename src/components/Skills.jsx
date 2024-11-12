@@ -16,7 +16,7 @@ function Skills() {
   const sectionRef = useRef(null);
 
   return (
-    <div className="skills-section" ref={sectionRef}>
+    <section className="skills-section" ref={sectionRef}>
       <div className="skills-container">
         <div className="section-heading-wrap">
           <h2 className="heading-h2">
@@ -67,7 +67,7 @@ function Skills() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import axios from "axios";
 import dividerImage from "../assets/divider.png";
 import "../styles/Contact.css";
 
@@ -9,12 +10,6 @@ gsap.registerPlugin(ScrollTrigger);
 const ContactSection = () => {
   const sectionRef = useRef(null);
   const formRowRef = useRef(null);
-  const [formStatus, setFormStatus] = useState(""); // formstatus initially set to empty strings using to manage the message
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  }); // formdata initially set to empty strings using to manage
 
   useEffect(() => {
     const formItems = gsap.utils.toArray(".form-item");
@@ -37,22 +32,67 @@ const ContactSection = () => {
     );
   }, []);
 
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [formErrors, setFormErrors] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [formStatus, setFormStatus] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
+    setFormData((prevData) => ({
+      ...prevData,
       [name]: value,
-    });
-  }; //this function handle changes in the form field and update it using the useState and update it in setFormData
+    }));
+  };
 
-  const handleSubmit = (e) => {
+  const validateForm = () => {
+    const errors = {};
+    if (!formData.name) errors.name = "Please enter your name";
+    if (!formData.email) errors.email = "Please enter a valid email address";
+    if (formData.email && !/\S+@\S+\.\S+/.test(formData.email)) {
+      errors.email = "Please enter a valid email address";
+    }
+    if (!formData.message || formData.message.length < 5)
+      errors.message = "Please enter a message";
+    setFormErrors(errors);
+    return Object.keys(errors).length === 0;
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setFormStatus("Your message was sent, thank you!");
-    setFormData({
-      name: "",
-      email: "",
-      message: "",
-    });
+
+    if (!validateForm()) {
+      return; // Don't submit if there are validation errors
+    }
+
+    setIsSubmitting(true);
+    setFormStatus(""); // Reset form status
+
+    try {
+      const response = await axios.post("php/send-email.php", formData);
+      if (response.data === "OK") {
+        setFormStatus("Your message was sent, thank you!");
+        setFormData({
+          name: "",
+          email: "",
+          message: "",
+        });
+      } else {
+        setFormStatus(response.data);
+      }
+    } catch (error) {
+      setFormStatus("Something went wrong. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -81,7 +121,12 @@ const ContactSection = () => {
             >
               <div className="form-group form-row mb-0">
                 <div className="col-lg-6 form-group form-item">
-                  <label htmlFor="name">Name</label>
+                  <label
+                    htmlFor="name"
+                    className={formData.name ? "field--not-empty" : ""}
+                  >
+                    Name
+                  </label>
                   <input
                     name="name"
                     type="text"
@@ -90,9 +135,18 @@ const ContactSection = () => {
                     value={formData.name}
                     onChange={handleChange}
                   />
+                  {formErrors.name && (
+                    <span className="form-error">{formErrors.name}</span>
+                  )}
                 </div>
+
                 <div className="col-lg-6 form-group form-item">
-                  <label htmlFor="email">Email</label>
+                  <label
+                    htmlFor="email"
+                    className={formData.email ? "field--not-empty" : ""}
+                  >
+                    Email
+                  </label>
                   <input
                     name="email"
                     type="email"
@@ -101,9 +155,18 @@ const ContactSection = () => {
                     value={formData.email}
                     onChange={handleChange}
                   />
+                  {formErrors.email && (
+                    <span className="form-error">{formErrors.email}</span>
+                  )}
                 </div>
+
                 <div className="col-lg-12 form-group form-item">
-                  <label htmlFor="message">Write your message...</label>
+                  <label
+                    htmlFor="message"
+                    className={formData.message ? "field--not-empty" : ""}
+                  >
+                    Write your message...
+                  </label>
                   <textarea
                     name="message"
                     id="message"
@@ -113,21 +176,25 @@ const ContactSection = () => {
                     value={formData.message}
                     onChange={handleChange}
                   />
+                  {formErrors.message && (
+                    <span className="form-error">{formErrors.message}</span>
+                  )}
                 </div>
               </div>
+
               <div className="form-group row form-item">
                 <div className="col-md-12 d-flex align-items-center">
                   <input
                     type="submit"
                     className="btn btn-outline-pill btn-custom-light mr-3"
-                    value="Send Message"
+                    value={isSubmitting ? "Submitting..." : "Send Message"}
+                    disabled={isSubmitting}
                   />
-                  <span className="submitting"></span>
                 </div>
               </div>
             </form>
-            <div id="form-message-warning" className="mt-4"></div>
-            <div id="form-message-success">
+
+            <div id="form-message-warning" className="mt-4">
               {formStatus && <p>{formStatus}</p>}
             </div>
           </div>
