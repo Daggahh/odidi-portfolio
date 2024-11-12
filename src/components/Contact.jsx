@@ -45,55 +45,55 @@ const ContactSection = () => {
   const [formStatus, setFormStatus] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
+  // const handleChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setFormData((prevData) => ({
+  //     ...prevData,
+  //     [name]: value,
+  //   }));
+  // };
 
-  const validateForm = () => {
-    const errors = {};
-    if (!formData.name) errors.name = "Please enter your name";
-    if (!formData.email) errors.email = "Please enter a valid email address";
-    if (formData.email && !/\S+@\S+\.\S+/.test(formData.email)) {
-      errors.email = "Please enter a valid email address";
-    }
-    if (!formData.message || formData.message.length < 5)
-      errors.message = "Please enter a message";
-    setFormErrors(errors);
-    return Object.keys(errors).length === 0;
-  };
+  // const validateForm = () => {
+  //   const errors = {};
+  //   if (!formData.name) errors.name = "Please enter your name";
+  //   if (!formData.email) errors.email = "Please enter a valid email address";
+  //   if (formData.email && !/\S+@\S+\.\S+/.test(formData.email)) {
+  //     errors.email = "Please enter a valid email address";
+  //   }
+  //   if (!formData.message || formData.message.length < 5)
+  //     errors.message = "Please enter a message";
+  //   setFormErrors(errors);
+  //   return Object.keys(errors).length === 0;
+  // };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
 
-    if (!validateForm()) {
-      return; // Don't submit if there are validation errors
-    }
+  //   if (!validateForm()) {
+  //     return; // Don't submit if there are validation errors
+  //   }
 
-    setIsSubmitting(true);
-    setFormStatus(""); // Reset form status
+  //   setIsSubmitting(true);
+  //   setFormStatus(""); // Reset form status
 
-    try {
-      const response = await axios.post("php/send-email.php", formData);
-      if (response.data === "OK") {
-        setFormStatus("Your message was sent, thank you!");
-        setFormData({
-          name: "",
-          email: "",
-          message: "",
-        });
-      } else {
-        setFormStatus(response.data);
-      }
-    } catch (error) {
-      setFormStatus("Something went wrong. Please try again.");
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+  //   try {
+  //     const response = await axios.post("php/send-email.php", formData);
+  //     if (response.data === "OK") {
+  //       setFormStatus("Your message was sent, thank you!");
+  //       setFormData({
+  //         name: "",
+  //         email: "",
+  //         message: "",
+  //       });
+  //     } else {
+  //       setFormStatus(response.data);
+  //     }
+  //   } catch (error) {
+  //     setFormStatus("Something went wrong. Please try again.");
+  //   } finally {
+  //     setIsSubmitting(false);
+  //   }
+  // };
 
   return (
     <section className="contact-section" id="contact-section" ref={sectionRef}>
@@ -117,7 +117,7 @@ const ContactSection = () => {
               method="post"
               className="form-outline-style-v1"
               id="contactForm"
-              onSubmit={handleSubmit}
+              // onSubmit={handleSubmit}
             >
               <div className="form-group form-row mb-0">
                 <div className="col-lg-6 form-group form-item">
@@ -133,7 +133,7 @@ const ContactSection = () => {
                     className="form-control"
                     id="name"
                     value={formData.name}
-                    onChange={handleChange}
+                    // onChange={handleChange}
                   />
                   {formErrors.name && (
                     <span className="form-error">{formErrors.name}</span>
@@ -153,7 +153,7 @@ const ContactSection = () => {
                     className="form-control"
                     id="email"
                     value={formData.email}
-                    onChange={handleChange}
+                    // onChange={handleChange}
                   />
                   {formErrors.email && (
                     <span className="form-error">{formErrors.email}</span>
@@ -174,7 +174,7 @@ const ContactSection = () => {
                     rows="7"
                     className="form-control"
                     value={formData.message}
-                    onChange={handleChange}
+                    // onChange={handleChange}
                   />
                   {formErrors.message && (
                     <span className="form-error">{formErrors.message}</span>

@@ -34,7 +34,8 @@
 
 .navbar-container {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
+  justify-content: space-around;
   align-items: center;
   width: 100%;
   margin: 0 auto;
@@ -130,11 +131,19 @@
   .navbar-container {
     max-width: 540px;
   }
+
+  .navbar-links {
+    display: none;
+  }
 }
 
 @media (min-width: 768px) {
   .navbar-container {
     max-width: 720px;
+  }
+
+  .navbar-links {
+    display: none;
   }
 }
 
