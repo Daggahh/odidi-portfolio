@@ -1,0 +1,23 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  color: grey;
+  padding: 20px 0;
+}
+
+.social-icon {
+  display: inline-flex;
+  list-style-type: none;
+  color: grey;
+  padding: 0;
+}
+
+.social-icon li {
+  margin-right: 10px;
+}
+
+.social-icon a {
+  color: grey;
+  font-size: 24px;
+}

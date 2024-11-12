@@ -1,19 +1,43 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import dividerImage from "../assets/divider.png";
 import "../styles/Services.css";
 
+gsap.registerPlugin(ScrollTrigger);
+
 function Services() {
+  const sectionRef = useRef(null);
+  const serviceRowRef = useRef(null);
+
   useEffect(() => {
-    const covers = document.querySelectorAll(".cover");
-    covers.forEach((cover) => {
-      setTimeout(() => {
-        cover.style.transform = "translateX(101%)";
-      }, 300);
-    });
+    const serviceItems = gsap.utils.toArray(".service-item");
+
+    // GSAP animation for each service item with fade-up effect and stagger
+    gsap.fromTo(
+      serviceItems,
+      { opacity: 0, y: 50 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power2.out",
+        stagger: 0.2, // Delay between each item's animation
+        scrollTrigger: {
+          trigger: serviceRowRef.current,
+          start: "top 80%",
+          toggleActions: "play none none none",
+        },
+      }
+    );
   }, []);
 
   return (
-    <section className="services-section" id="services-section">
+    <section
+      className="services-section"
+      id="services-section"
+      ref={sectionRef}
+    >
       <div className="section-container">
         <div className="section-heading-wrap">
           <h2 className="heading-h2">
@@ -28,7 +52,7 @@ function Services() {
           </span>
         </div>
 
-        <div className="services-row">
+        <div className="services-row" ref={serviceRowRef}>
           <div className="service-item item-0">
             <div className="wrap-icon">
               <img

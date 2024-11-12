@@ -13,7 +13,7 @@
 }
 
 .section-heading-wrap {
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
 .heading-h2 {
@@ -44,11 +44,13 @@
   margin-top: 1rem;
 }
 
-.row {
+.skill-row {
   display: flex;
   flex-wrap: wrap;
   margin-right: -15px;
   margin-left: -15px;
+  margin-bottom: 20px;
+  padding-top: 3rem;
 }
 
 /* SkillCard Styling */
@@ -91,19 +93,6 @@
   margin-right: 17px;
 }
 
-/* Animation */
-/* [data-aos="fade-up"] {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-[data-aos="fade-up"].aos-animate {
-  opacity: 1;
-  transform: translateY(0);
-} */
-
-/* Responsive Styles */
 @media (max-width: 768px) {
   .heading-h2 {
     font-size: 2rem;

@@ -41,9 +41,9 @@
   right: 0;
   bottom: 0;
   background: black;
-  transform: translateX(0);
+  /* transform: translateX(0);
   transform-origin: left;
-  transition: transform 1s ease;
+  transition: transform 1s ease; */
 }
 
 .gsap-reveal img {

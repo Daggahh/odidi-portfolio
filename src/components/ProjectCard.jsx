@@ -16,8 +16,8 @@ function ProjectCard({ project, itemId }) {
       { x: "0%" },
       {
         x: "102%",
-        duration: 1.5,
-        ease: "power3.out",
+        duration: 1,
+        ease: "circ.inOut",
         scrollTrigger: {
           trigger: coverRed,
           start: "top 80%",

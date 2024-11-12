@@ -26,19 +26,24 @@ function Navbar({ showFirstLogo }) {
           </ul>
         </div>
 
-         <a className="logo-link" href="/">
-        <div className="logo">
-          {showFirstLogo ? <GiSharpSmile /> : <GiEvilEyes />}
-          Odidi
-          <span className="red-dot">.</span>
-        </div>
+        <a className="logo-link" href="/">
+          <div className="logo">
+            {showFirstLogo ? <GiSharpSmile /> : <GiEvilEyes />}
+            Odidi
+            <span className="red-dot">.</span>
+          </div>
         </a>
 
         <div className="navbar-right">
           <ul className="navbar-links">
             <li>
-              <a href="#skills-section" className="nav-link">
+              <a href="#soft-skills-section" className="nav-link">
                 Skills
+              </a>
+            </li>
+            <li>
+              <a href="#experience-section" className="nav-link">
+                Experience
               </a>
             </li>
             <li>

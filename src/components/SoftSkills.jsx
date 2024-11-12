@@ -17,13 +17,6 @@ function SoftSkills() {
       trigger: sectionRef.current,
       start: "top 80%",
       onEnter: () => {
-        // Cover animation with delayed transition for a smooth effect
-        gsap.to(".cover", {
-          x: "101%",
-          duration: 1.5,
-          ease: "power2.out",
-        });
-
         // Row slide-up fade animation
         gsap.fromTo(
           rowRef.current,
@@ -72,7 +65,7 @@ function SoftSkills() {
           </span>
         </div>
 
-        <div className="row pt-5" ref={rowRef}>
+        <div className="skill-row pt-5" ref={rowRef}>
           <SkillCard delay="0" percentage={99} skillName="Creative Thinking" />
           <SkillCard
             delay="100"

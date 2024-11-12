@@ -1,37 +1,12 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 import ProjectCard from "./ProjectCard";
 import projects from "../data/projects";
 import "../styles/Portfolio.css";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 
 function Portfolio() {
   const sectionRef = useRef(null);
   const [activeFilter, setActiveFilter] = useState("all");
   const [hiddenObj, setHiddenObj] = useState(false);
-
-  useEffect(() => {
-    const covers = document.querySelectorAll(".cover");
-
-    covers.forEach((cover) => {
-      gsap.fromTo(
-        cover,
-        { x: "0%" },
-        {
-          x: "101%",
-          duration: 1.2,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: cover,
-            start: "top 80%",
-            toggleActions: "play none none none",
-          },
-        }
-      );
-    });
-  }, []);
 
   const handleFilterClick = (event, filter) => {
     event.preventDefault();

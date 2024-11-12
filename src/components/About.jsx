@@ -1,20 +1,36 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import dividerImage from "../assets/divider.png";
 import freshboy from "../assets/IMG_3904-removebg-preview.png";
 import "../styles/About.css";
 
+gsap.registerPlugin(ScrollTrigger);
+
 function AboutMe() {
+  const sectionRef = useRef(null);
+
   useEffect(() => {
-    const covers = document.querySelectorAll(".cover");
-    covers.forEach((cover) => {
-      setTimeout(() => {
-        cover.style.transform = "translateX(101%)";
-      }, 300);
-    });
+    const coverRed = document.querySelector(".cover-red-img");
+
+    gsap.fromTo(
+      coverRed,
+      { x: "0%" },
+      {
+        x: "102%",
+        duration: 1,
+        ease: "circ.inOut",
+        scrollTrigger: {
+          trigger: coverRed,
+          start: "top 80%",
+          toggleActions: "play none none none",
+        },
+      }
+    );
   }, []);
 
   return (
-    <section className="about-section" id="about-section">
+    <section className="about-section" id="about-section" ref={sectionRef}>
       <div className="section-container">
         <div className="section-heading-wrap">
           <h2 className="heading-about">
@@ -33,7 +49,7 @@ function AboutMe() {
           <div className="col-lg-7 mb-5 mb-lg-0 about-img">
             <figure className="dotted-bg gsap-reveal-img">
               <div className="reveal-wrap">
-                <span className="cover"></span>
+                <span className="cover-red-img"></span>
                 <div className="reveal-content">
                   {" "}
                   <img

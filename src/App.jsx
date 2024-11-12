@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import useCoverAnimations from "./hooks/useCoverAnimations";
 import Navbar from "./components/Navbar";
 import MobileMenu from "./components/MobileMenu";
 import Hero from "./components/Hero";
@@ -7,9 +8,13 @@ import Skills from "./components/Skills";
 import About from "./components/About";
 import Services from "./components/Services";
 import SoftSkills from "./components/SoftSkills";
+import Experience from "./components/Experience";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
 import "./index.css";
 
 function App() {
+  useCoverAnimations();
   const [prevScrollPos, setPrevScrollPos] = useState(window.scrollY);
   const [showFirstLogo, setShowFirstLogo] = useState(true);
 
@@ -53,6 +58,9 @@ function App() {
       <About />
       <Services />
       <SoftSkills />
+      <Experience />
+      <Contact />
+      <Footer />
     </div>
   );
 }
