@@ -77,7 +77,7 @@ const ContactSection = () => {
   //   setFormStatus(""); // Reset form status
 
   //   try {
-  //     const response = await axios.post("php/send-email.php", formData);
+  //     const response = await axios.post("http://localhost:8000/signup", formData);
   //     if (response.data === "OK") {
   //       setFormStatus("Your message was sent, thank you!");
   //       setFormData({

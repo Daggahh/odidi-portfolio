@@ -1,7 +1,6 @@
 .navbar {
   position: absolute;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding: 30px 0;
   left: 0;
   top: 0;
   z-index: 1002;
@@ -76,54 +75,78 @@
 
 .scrolled {
   background-color: white;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding: 5px 0;
   position: fixed;
   right: 0;
   left: 0;
   top: 0;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   width: 100%;
-
-  .navbar-links .nav-link {
-    color: #000;
-    text-decoration: none;
-    transition: color 0.3s;
-  }
-
-  .navbar-links .nav-link:hover {
-    color: red;
-  }
-
-  .nav-link {
-    position: relative;
-  }
-
-  .nav-link.active::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -2px;
-    width: 100%;
-    height: 2px;
-    background-color: #d63447;
-  }
-
-  .logo-link {
-    text-decoration: none;
-  }
-
-  .logo {
-    color: #000;
-  }
 }
 
-@media (max-width: 768px) {
+.scrolled .navbar-links .nav-link {
+  color: #000;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.scrolled .navbar-links .nav-link:hover {
+  color: red;
+}
+
+.scrolled .nav-link {
+  position: relative;
+}
+
+.scrolled .nav-link.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background-color: #d63447;
+}
+
+.scrolled .logo-link {
+  text-decoration: none;
+}
+
+.scrolled .logo {
+  color: #000;
+}
+
+@media (max-width: 992px) {
+  .no-scroll {
+    overflow: hidden;
+  }
+
+  .navbar-links {
+    display: none;
+  }
+
   .menu-toggle {
     display: block;
   }
-  .navbar-links {
-    display: none;
+
+  .mobile-menu-overlay {
+    display: block;
+  }
+
+  .menu-toggle a {
+    color: #fff !important;
+  }
+
+  .menu-toggle a:active {
+    color: #d63447 !important;
+  }
+
+  .scrolled .menu-toggle a {
+    color: #000 !important;
+  }
+
+  .scrolled .menu-toggle a:active {
+    color: #d63447 !important;
   }
 }
 
@@ -131,25 +154,29 @@
   .navbar-container {
     max-width: 540px;
   }
-
-  .navbar-links {
-    display: none;
-  }
 }
 
 @media (min-width: 768px) {
   .navbar-container {
     max-width: 720px;
   }
-
-  .navbar-links {
-    display: none;
-  }
 }
 
 @media (min-width: 992px) {
   .navbar-container {
     max-width: 960px;
+  }
+
+  .navbar-links {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+
+  .mobile-menu-overlay {
+    display: none;
   }
 }
 

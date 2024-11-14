@@ -1,9 +1,33 @@
 import React, { useEffect, useState } from "react";
+import MobileMenu from "./MobileMenu";
 import { GiSharpSmile, GiEvilEyes } from "react-icons/gi";
 import "../styles/Navbar.css";
 
 function Navbar({ showFirstLogo }) {
+  const [isVisible, setIsVisible] = useState(false);
   const [activeSection, setActiveSection] = useState("");
+
+  const handleMenuToggle = (e) => {
+    // setIsVisible(!isVisible);
+    setIsVisible((prev) => !prev);
+    e.preventDefault();
+  };
+
+  const handleClose = () => {
+    setIsVisible(false);
+  };
+
+  useEffect(() => {
+    if (isVisible === true) {
+      document.body.classList.add("no-scroll");
+    } else {
+      document.body.classList.remove("no-scroll");
+    }
+
+    return () => {
+      document.body.classList.remove("no-scroll");
+    };
+  }, [isVisible]);
 
   useEffect(() => {
     const sections = document.querySelectorAll("section");
@@ -25,7 +49,7 @@ function Navbar({ showFirstLogo }) {
       observer.observe(section);
     });
 
-    return () => observer.disconnect(); // Clean up on component unmount
+    return () => observer.disconnect();
   }, []);
 
   return (
@@ -117,6 +141,16 @@ function Navbar({ showFirstLogo }) {
               </a>
             </li>
           </ul>
+
+          <div className="menu-toggle" onClick={handleMenuToggle}>
+            <a href="#" className="js-menu-toggle">
+              Menu
+            </a>
+          </div>
+
+          {isVisible && (
+            <MobileMenu onClose={handleClose} isMenuVisible={isVisible} />
+          )}
         </div>
       </div>
     </nav>
