@@ -58,7 +58,7 @@ function AboutMe() {
 
   return (
     <section className="about-section" id="about-section" ref={sectionRef}>
-      <div className="section-container">
+      <div className="about-container">
         <div className="section-heading-wrap">
           <h2 className="heading-about">
             <span className="gsap-reveal">

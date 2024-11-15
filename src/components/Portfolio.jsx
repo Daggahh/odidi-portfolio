@@ -1,12 +1,10 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import ProjectCard from "./ProjectCard";
 import projects from "../data/projects";
 import { motion, AnimatePresence } from "framer-motion";
 import { GoTriangleUp } from "react-icons/go";
-// import gsap from "gsap";
 import "../styles/Portfolio.css";
 
-// Define the dropdown item animation
 const itemVariants = {
   open: {
     opacity: 1,
@@ -21,14 +19,13 @@ function Portfolio() {
   const [activeFilter, setActiveFilter] = useState("all");
   const [hiddenObj, setHiddenObj] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth >= 992);
 
-  // const handleHover = () => {
-  //   gsap.to(".filter-wrap", { opacity: 1, height: "auto", duration: 0.3 });
-  // };
-
-  // const handleHoverOut = () => {
-  //   gsap.to(".filter-wrap", { opacity: 0, height: 0, duration: 0.3 });
-  // };
+  useEffect(() => {
+    const handleResize = () => setIsLargeScreen(window.innerWidth >= 992);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const toggleDropdown = (e) => {
     e.preventDefault();
@@ -65,39 +62,36 @@ function Portfolio() {
 
           <div className="filter-container">
             <span className="cover"></span>
-
-            <motion.a
-              href="#"
-              className="js-filter"
-              whileTap={{ scale: 0.97 }}
-              initial={false}
-              animate={isOpen ? "open" : "closed"}
-              // onMouseEnter={handleHover}
-              // onMouseLeave={handleHoverOut}
-              onClick={toggleDropdown}
-            >
-              Filter
-              {/* Rotation of arrow icon */}
-              <motion.div
-                variants={{
-                  open: { rotate: 180 },
-                  closed: { rotate: 0 },
-                }}
-                transition={{ duration: 0.2 }}
-                style={{ originY: 0.85, height: "16px" }}
+            {!isLargeScreen && (
+              <motion.a
+                href="#"
+                className="js-filter"
+                whileTap={{ scale: 0.97 }}
+                initial={false}
+                animate={isOpen ? "open" : "closed"}
+                onClick={toggleDropdown}
+                // style={{ display: window.innerWidth < 992 ? "block" : "none" }}
               >
-                <GoTriangleUp style={{ margin: "8px 0 0 0px" }} />
-              </motion.div>
-            </motion.a>
+                Filter
+                <motion.div
+                  variants={{
+                    open: { rotate: 180 },
+                    closed: { rotate: 0 },
+                  }}
+                  transition={{ duration: 0.2 }}
+                  style={{ originY: 0.85, height: "16px" }}
+                >
+                  <GoTriangleUp style={{ margin: "8px 0 0 0px" }} />
+                </motion.div>
+              </motion.a>
+            )}
 
             <AnimatePresence>
-              {isOpen && (
+              {(isOpen || isLargeScreen) && (
                 <motion.div
-                  className={`filter-wrap ${isOpen ? "open" : ""}`}
-                  // initial={{ opacity: 0, y: -10 }}
-                  // animate={{ opacity: 1, y: 0 }}
-                  // exit={{ opacity: 0, y: -10 }}
-                  // transition={{ duration: 0.3 }}
+                  className={`filter-wrap ${
+                    isOpen || isLargeScreen ? "open" : ""
+                  }`}
                   variants={{
                     open: {
                       clipPath: "inset(0% 0% 0% 0% round 10px)",
@@ -118,7 +112,9 @@ function Portfolio() {
                       },
                     },
                   }}
-                  style={{ pointerEvents: isOpen ? "auto" : "none" }}
+                  style={{
+                    pointerEvents: isOpen || isLargeScreen ? "auto" : "none",
+                  }}
                 >
                   <motion.div className="filter ml-auto" id="filters">
                     <motion.a

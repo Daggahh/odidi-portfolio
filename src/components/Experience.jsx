@@ -48,6 +48,7 @@ function Experience() {
         {experiences.map((exp, index) => (
           <div className="experience-item" key={index}>
             <div className="experience-inner-bg">
+              <span class="quote">“</span>
               <blockquote>{exp.description}</blockquote>
             </div>
             <div className="experience-author-info">

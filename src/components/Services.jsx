@@ -38,7 +38,7 @@ function Services() {
       id="services-section"
       ref={sectionRef}
     >
-      <div className="section-container">
+      <div className="services-container">
         <div className="section-heading-wrap">
           <h2 className="heading-h2">
             <span className="gsap-reveal">

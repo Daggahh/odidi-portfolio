@@ -45,6 +45,9 @@
   display: inline-block;
   overflow: hidden;
   margin-top: 20px;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .filter-link {
@@ -616,7 +619,7 @@
   }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991.98px) {
   .portfolio-text {
     display: flex;
     flex-direction: row;
@@ -691,6 +694,20 @@
   .filter-link:active {
     transform: scale(0.95);
     color: #fff;
+  }
+}
+
+@media (min-width: 992px) {
+  .js-filter {
+    display: none;
+  }
+  .filter-wrap {
+    display: flex;
+    position: static;
+    clip-path: none;
+    pointer-events: auto;
+    opacity: 1;
+    visibility: visible;
   }
 }
 
@@ -873,10 +890,6 @@
 }
 
 @media (min-width: 1200px) {
-  .js-filter {
-    display: none; /* Hidden on larger screens */
-  }
-
   .portfolio-container {
     max-width: 1140px;
   }

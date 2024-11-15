@@ -1,8 +1,8 @@
-.services-section {
-  /* padding-bottom: 3.5rem; */
-}
+/* .services-section {
+  padding-bottom: 3.5rem;
+} */
 
-.section-container {
+.services-container {
   width: 100%;
   padding: 0 15px;
   margin: 0 auto;
@@ -42,7 +42,7 @@
   margin-left: -60px !important;
   display: grid;
   grid-template-columns: repeat(3, 33.3%);
-  flex-wrap: wrap;
+  grid-template-rows: repeat(2, auto);
   gap: 2rem;
   margin-top: 3rem;
 }
@@ -109,27 +109,116 @@
 .service-item p {
   font-size: 16px;
   color: #ccc;
+  line-height: 28px;
 }
 
 @media (min-width: 576px) {
-  .section-container {
+  .services-container {
     max-width: 540px;
   }
 }
+
+@media (max-width: 767.98px) {
+  .services-row {
+    margin-left: 0 !important;
+    display: flex !important;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .service-item {
+    margin-bottom: 1.5rem !important;
+    background-color: inherit;
+    justify-items: center;
+    padding-right: 15px !important;
+    padding-left: 15px !important;
+    text-align: center;
+  }
+}
+
 @media (min-width: 768px) {
-  .section-container {
+  .services-container {
     max-width: 720px;
   }
 }
 
+@media (max-width: 991.98px) {
+  .services-row {
+    margin-left: 0 !important;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .service-item {
+    margin-bottom: 1.5rem !important;
+    background-color: inherit;
+    padding-right: 30px !important;
+    padding-left: 30px !important;
+  }
+
+  #item-0 {
+    grid-row-start: 1;
+    grid-column-start: 1;
+
+    grid-row-end: 2;
+    grid-column-end: 2;
+  }
+  #item-1 {
+    grid-row-start: 1;
+    grid-column-start: 2;
+
+    grid-row-end: 2;
+    grid-column-end: 3;
+  }
+  #item-2 {
+    grid-row-start: 2;
+    grid-column-start: 1;
+
+    grid-row-end: 3;
+    grid-column-end: 2;
+  }
+  #item-3 {
+    grid-row-start: 2;
+    grid-column-start: 2;
+
+    grid-row-end: 3;
+    grid-column-end: 3;
+  }
+  #item-4 {
+    grid-row-start: 3;
+    grid-column-start: 1;
+
+    grid-row-end: 4;
+    grid-column-end: 2;
+  }
+}
+
 @media (min-width: 992px) {
-  .section-container {
+  .services-container {
     max-width: 960px;
+  }
+
+  .service-item {
+    margin-bottom: 1.5rem !important;
+    background-color: inherit;
+    padding-right: 21px !important;
+    padding-left: 59px !important;
   }
 }
 
 @media (min-width: 1200px) {
-  .section-container {
+  .services-container {
     max-width: 1140px;
+  }
+
+  .service-item {
+    margin-bottom: 1.5rem !important;
+    background-color: inherit;
+    padding-right: 33px !important;
+    padding-left: 60px !important;
   }
 }

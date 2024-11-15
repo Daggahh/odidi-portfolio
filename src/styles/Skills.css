@@ -91,9 +91,10 @@
   }
 }
 
-@media (min-width: 992px) {
+@media (max-width: 991.98px) {
   .skills-container {
     max-width: 960px;
+    border: 0.1px solid rgb(46, 46, 46);
   }
 }
 

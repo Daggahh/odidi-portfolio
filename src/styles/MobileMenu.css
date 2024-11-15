@@ -1,3 +1,7 @@
+body {
+  overflow-x: hidden;
+}
+
 .mobile-menu-overlay {
   position: fixed;
   top: 0;
