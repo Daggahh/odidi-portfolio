@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import axios from "axios";
+import emailjs from "@emailjs/browser";
 import dividerImage from "../assets/divider.png";
 import "../styles/Contact.css";
 
@@ -10,6 +10,7 @@ gsap.registerPlugin(ScrollTrigger);
 const ContactSection = () => {
   const sectionRef = useRef(null);
   const formRowRef = useRef(null);
+  const form = useRef();
 
   useEffect(() => {
     const formItems = gsap.utils.toArray(".form-item");
@@ -22,7 +23,7 @@ const ContactSection = () => {
         y: 0,
         duration: 1,
         ease: "power2.out",
-        stagger: 0.2, // Delay between each item's animation
+        stagger: 0.2,
         scrollTrigger: {
           trigger: formRowRef.current,
           start: "top 80%",
@@ -33,67 +34,64 @@ const ContactSection = () => {
   }, []);
 
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
+    user_name: "",
+    user_email: "",
     message: "",
   });
-  const [formErrors, setFormErrors] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
+
+  const [formErrors, setFormErrors] = useState({});
   const [formStatus, setFormStatus] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // const handleChange = (e) => {
-  //   const { name, value } = e.target;
-  //   setFormData((prevData) => ({
-  //     ...prevData,
-  //     [name]: value,
-  //   }));
-  // };
+  const sendEmail = (e) => {
+    e.preventDefault();
+    if (!validateForm()) {
+      setFormStatus("Please fill all required fields correctly.");
+      return;
+    }
+    setIsSubmitting(true);
 
-  // const validateForm = () => {
-  //   const errors = {};
-  //   if (!formData.name) errors.name = "Please enter your name";
-  //   if (!formData.email) errors.email = "Please enter a valid email address";
-  //   if (formData.email && !/\S+@\S+\.\S+/.test(formData.email)) {
-  //     errors.email = "Please enter a valid email address";
-  //   }
-  //   if (!formData.message || formData.message.length < 5)
-  //     errors.message = "Please enter a message";
-  //   setFormErrors(errors);
-  //   return Object.keys(errors).length === 0;
-  // };
+    emailjs
+      .sendForm("service_jfoohqs", "template_qa7s8jw", form.current, {
+        publicKey: "Vcb_urU0cyKPopIYU",
+      })
+      .then(
+        () => {
+          setFormStatus("Message sent successfully!");
+          setIsSubmitting(false);
+          setFormData({ user_name: "", user_email: "", message: "" });
+          setFormErrors({});
+        },
+        (error) => {
+          setFormStatus("Message sending failed. Please try again.");
+          setIsSubmitting(false);
+          console.error("Failed to send message:", error.text);
+        }
+      );
+  };
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
 
-  //   if (!validateForm()) {
-  //     return; // Don't submit if there are validation errors
-  //   }
-
-  //   setIsSubmitting(true);
-  //   setFormStatus(""); // Reset form status
-
-  //   try {
-  //     const response = await axios.post("http://localhost:8000/signup", formData);
-  //     if (response.data === "OK") {
-  //       setFormStatus("Your message was sent, thank you!");
-  //       setFormData({
-  //         name: "",
-  //         email: "",
-  //         message: "",
-  //       });
-  //     } else {
-  //       setFormStatus(response.data);
-  //     }
-  //   } catch (error) {
-  //     setFormStatus("Something went wrong. Please try again.");
-  //   } finally {
-  //     setIsSubmitting(false);
-  //   }
-  // };
+  const validateForm = () => {
+    const errors = {};
+    if (!formData.user_name) errors.user_name = "Please enter your name";
+    if (!formData.user_email) {
+      errors.user_email = "Please enter your email address";
+    } else if (!/\S+@\S+\.\S+/.test(formData.user_email)) {
+      errors.user_email = "Please enter a valid email address";
+    }
+    if (!formData.message || formData.message.length < 5) {
+      errors.message = "Message must be at least 5 characters.";
+    }
+    setFormErrors(errors);
+    return Object.keys(errors).length === 0;
+  };
 
   return (
     <section className="contact-section" id="contact-section" ref={sectionRef}>
@@ -117,46 +115,47 @@ const ContactSection = () => {
               method="post"
               className="form-outline-style-v1"
               id="contactForm"
-              // onSubmit={handleSubmit}
+              ref={form}
+              onSubmit={sendEmail}
             >
               <div className="form-group form-row mb-0">
                 <div className="col-lg-6 form-group form-item">
                   <label
-                    htmlFor="name"
-                    className={formData.name ? "field--not-empty" : ""}
+                    htmlFor="user_name"
+                    className={formData.user_name ? "field--not-empty" : ""}
                   >
                     Name
                   </label>
                   <input
-                    name="name"
+                    name="user_name"
                     type="text"
-                    className="form-control"
-                    id="name"
-                    value={formData.name}
-                    // onChange={handleChange}
+                    className="form-control form-control-large"
+                    id="user_name"
+                    value={formData.user_name}
+                    onChange={handleChange}
                   />
-                  {formErrors.name && (
-                    <span className="form-error">{formErrors.name}</span>
+                  {formErrors.user_name && (
+                    <span className="form-error">{formErrors.user_name}</span>
                   )}
                 </div>
 
                 <div className="col-lg-6 form-group form-item">
                   <label
-                    htmlFor="email"
-                    className={formData.email ? "field--not-empty" : ""}
+                    htmlFor="user_email"
+                    className={formData.user_email ? "field--not-empty" : ""}
                   >
                     Email
                   </label>
                   <input
-                    name="email"
+                    name="user_email"
                     type="email"
-                    className="form-control"
-                    id="email"
-                    value={formData.email}
-                    // onChange={handleChange}
+                    className="form-control form-control-large"
+                    id="user_email"
+                    value={formData.user_email}
+                    onChange={handleChange}
                   />
-                  {formErrors.email && (
-                    <span className="form-error">{formErrors.email}</span>
+                  {formErrors.user_email && (
+                    <span className="form-error">{formErrors.user_email}</span>
                   )}
                 </div>
 
@@ -172,9 +171,9 @@ const ContactSection = () => {
                     id="message"
                     cols="30"
                     rows="7"
-                    className="form-control"
+                    className="form-control form-control-large"
                     value={formData.message}
-                    // onChange={handleChange}
+                    onChange={handleChange}
                   />
                   {formErrors.message && (
                     <span className="form-error">{formErrors.message}</span>

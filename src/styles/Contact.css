@@ -24,11 +24,16 @@
 
 .form-row {
   display: flex;
-  justify-content: space-between;
   display: flex;
   flex-wrap: wrap;
   margin-right: -15px;
   margin-left: -15px;
+}
+
+.justify-content-between {
+  -webkit-box-pack: justify !important;
+  -ms-flex-pack: justify !important;
+  justify-content: space-between !important;
 }
 
 .form-group {
@@ -85,6 +90,10 @@
   opacity: 0;
   transition: all 0.3s ease-in-out;
   font-size: 10px;
+}
+
+.form-control-large {
+  font-size: 1.5rem;
 }
 
 .form-error {
