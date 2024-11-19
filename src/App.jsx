@@ -11,12 +11,21 @@ import SoftSkills from "./components/SoftSkills";
 import Experience from "./components/Experience";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import Loader from "./components/Loader"; // Ensure you import the loader
 import "./index.css";
 
 function App() {
-  useCoverAnimations();
+  const [isLoading, setIsLoading] = useState(true);
   const [prevScrollPos, setPrevScrollPos] = useState(window.scrollY);
   const [showFirstLogo, setShowFirstLogo] = useState(true);
+
+  // Wait for the loader to finish before enabling other animations
+  const handleLoaderComplete = () => {
+    setIsLoading(false);
+    document.body.style.overflowY = "scroll"; // Reset the overflow for the body
+  };
+
+  useCoverAnimations(); // Apply the cover animations
 
   useEffect(() => {
     const handleScroll = () => {
@@ -50,6 +59,7 @@ function App() {
 
   return (
     <div>
+      {isLoading && <Loader onComplete={handleLoaderComplete} />}
       <MobileMenu />
       <Navbar showFirstLogo={showFirstLogo} />
       <Hero id="hero-section" />

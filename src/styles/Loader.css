@@ -1,0 +1,49 @@
+.loader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.loader-logo {
+  opacity: 0;
+  width: 100px;
+  height: auto;
+  animation: pulse-fade 2s infinite ease-in-out;
+  transition: opacity 0.5s ease;
+}
+
+.texts-container {
+  opacity: 0;
+  margin-top: -20px;
+  text-align: center;
+  font-size: 1.5rem;
+  color: white;
+  text-shadow: 0 0 10px silver, 0 0 20px silver, 0 0 30px silver;
+  transition: opacity 0.5s ease;
+}
+
+@keyframes pulse-fade {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.loader .loader-logo,
+.loader .texts-container {
+  transition: opacity 0.5s ease, transform 1s ease;
+}
