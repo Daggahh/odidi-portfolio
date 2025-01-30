@@ -55,7 +55,7 @@ function Hero() {
                 >
                   <ReactTyped
                     strings={[
-                      "a Frontend developer.",
+                      "a Full-Stack developer.",
                       "a Logical thinker.",
                       "a Data analyst enthusiast.",
                       "an Astrophile.",

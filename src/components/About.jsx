@@ -91,17 +91,18 @@ function AboutMe() {
           <div className="col-lg-4 pr-lg-5 about-text">
             <h3 className="mb-4 heading-h3">
               <span className="gsap-reveal">
-                Frontend Developer | Data Analyst Enthusiast | Music Lover
+                Full-Stack Developer | Data Analyst Enthusiast | Music Lover
                 <span className="cover"></span>
               </span>
             </h3>
             <p className="lead gsap-reveal">
-              As a Frontend Developer, I’m passionate about crafting intuitive
-              and visually engaging user experiences. I combine a strong
-              foundation in web development with a deep interest in data
-              analytics, exploring ways to enhance applications with data-driven
-              insights. Beyond tech, I'm a dedicated music lover, constantly
-              inspired by how creativity flows across both code and melody.
+              As a Full-Stack Developer, I’m passionate about building seamless
+              and visually engaging digital experiences. I integrate front-end
+              elegance with back-end efficiency, ensuring robust and scalable
+              applications. With a deep interest in data analytics, I explore
+              ways to enhance applications with data-driven insights. Beyond
+              tech, I'm a dedicated music lover, constantly inspired by how
+              creativity flows across both code and melody.
               <span className="cover"></span>
             </p>
             <p className="gsap-reveal">

@@ -10,7 +10,8 @@ import {
   faReact,
   faGitAlt,
 } from "@fortawesome/free-brands-svg-icons";
-import { BiLogoTypescript } from "react-icons/bi";
+import { TbBrandNodejs } from "react-icons/tb";
+import { BiLogoTypescript, BiLogoMongodb } from "react-icons/bi";
 
 function Skills() {
   const sectionRef = useRef(null);
@@ -63,6 +64,12 @@ function Skills() {
               className="skill-icon"
               icon={faReact}
               style={{ color: "#61DAFB" }}
+            />
+            <BiLogoMongodb
+              style={{ color: "#006648", width: "33px", height: "33px" }}
+            />
+            <TbBrandNodejs
+              style={{ color: "#509941", width: "33px", height: "33px" }}
             />
           </div>
         </div>
