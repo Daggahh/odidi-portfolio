@@ -5,6 +5,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: repeat;
+  background-attachment: fixed;
   width: 100%;
   color: #fff;
   text-align: center;
