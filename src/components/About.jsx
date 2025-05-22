@@ -107,7 +107,7 @@ function AboutMe() {
             </p>
             <p className="gsap-reveal">
               <a
-                href="/ODIDI HOPE CV.pdf"
+                href="/ODIDI HOPE, CV.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 download

@@ -94,6 +94,32 @@
   z-index: 1;
 }
 
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+@media (min-width: 640px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .projects-grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: masonry;
+  }
+}
+
+@media (min-width: 1280px) {
+  .projects-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
 @media (max-width: 575px) {
   .portfolio-wrapper {
     display: grid;
@@ -263,6 +289,54 @@
       grid-row-end: 3;
       grid-column-end: 3;
       height: fit-content;
+    }
+  }
+
+  .portfolio-wrapper.projects-grid {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(5, auto);
+    padding-bottom: 30px;
+    grid-gap: 20px;
+    width: 100%;
+
+    #item-0 {
+      grid-row-start: 1;
+      grid-column-start: 1;
+      grid-row-end: 2;
+      grid-column-end: 2;
+      height: 300px;
+    }
+
+    #item-1 {
+      grid-row-start: 2;
+      grid-column-start: 1;
+      grid-row-end: 3;
+      grid-column-end: 2;
+      height: 250px;
+    }
+
+    #item-2 {
+      grid-row-start: 3;
+      grid-column-start: 1;
+      grid-row-end: 4;
+      grid-column-end: 2;
+      height: 250px;
+    }
+
+    #item-3 {
+      grid-row-start: 4;
+      grid-column-start: 1;
+      grid-row-end: 5;
+      grid-column-end: 2;
+      height: 250px;
+    }
+
+    #item-4 {
+      grid-row-start: 5;
+      grid-column-start: 1;
+      grid-row-end: 6;
+      grid-column-end: 2;
+      height: 300px;
     }
   }
 }
@@ -695,6 +769,51 @@
     transform: scale(0.95);
     color: #fff;
   }
+
+  .portfolio-wrapper.projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+
+    #item-0 {
+      grid-row-start: 1;
+      grid-column-start: 1;
+      grid-row-end: 2;
+      grid-column-end: 2;
+      height: 300px;
+    }
+
+    #item-1 {
+      grid-row-start: 2;
+      grid-column-start: 1;
+      grid-row-end: 3;
+      grid-column-end: 3;
+      height: 250px;
+    }
+
+    #item-2 {
+      grid-row-start: 3;
+      grid-column-start: 1;
+      grid-row-end: 4;
+      grid-column-end: 2;
+      height: 200px;
+    }
+
+    #item-3 {
+      grid-row-start: 3;
+      grid-column-start: 2;
+      grid-row-end: 4;
+      grid-column-end: 3;
+      height: 200px;
+    }
+
+    #item-4 {
+      grid-row-start: 1;
+      grid-column-start: 2;
+      grid-row-end: 2;
+      grid-column-end: 3;
+      height: 300px;
+    }
+  }
 }
 
 @media (min-width: 992px) {
@@ -708,6 +827,57 @@
     pointer-events: auto;
     opacity: 1;
     visibility: visible;
+  }
+}
+
+@media (min-width: 992px) {
+  .portfolio-wrapper.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, auto);
+    padding-bottom: 30px;
+    grid-gap: 20px;
+    width: 100%;
+
+    #item-0 {
+      grid-row-start: 1;
+      grid-column-start: 1;
+      grid-row-end: 3;
+      grid-column-end: 2;
+      height: 500px;
+    }
+
+    #item-1 {
+      grid-row-start: 1;
+      grid-column-start: 2;
+      grid-row-end: 2;
+      grid-column-end: 4;
+      height: 300px;
+    }
+
+    #item-2 {
+      grid-row-start: 2;
+      grid-column-start: 2;
+      grid-row-end: 3;
+      grid-column-end: 3;
+      height: 200px;
+    }
+
+    #item-3 {
+      grid-row-start: 2;
+      grid-column-start: 3;
+      grid-row-end: 3;
+      grid-column-end: 4;
+      height: 200px;
+    }
+
+    #item-4 {
+      grid-row-start: 1;
+      grid-column-start: 4;
+      grid-row-end: 3;
+      grid-column-end: 5;
+      height: 500px;
+    }
   }
 }
 
@@ -1064,6 +1234,55 @@
       grid-row-end: 3;
       grid-column-end: 3;
       height: fit-content;
+    }
+  }
+
+  .portfolio-wrapper.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, auto);
+    padding-bottom: 30px;
+    grid-gap: 20px;
+    width: 100%;
+
+    #item-0 {
+      grid-row-start: 1;
+      grid-column-start: 1;
+      grid-row-end: 3;
+      grid-column-end: 2;
+      height: 500px; /* Reconxi - tall box on left */
+    }
+
+    #item-1 {
+      grid-row-start: 1;
+      grid-column-start: 2;
+      grid-row-end: 2;
+      grid-column-end: 4;
+      height: 300px; /* FitsCheck - wide box in center top */
+    }
+
+    #item-2 {
+      grid-row-start: 2;
+      grid-column-start: 2;
+      grid-row-end: 3;
+      grid-column-end: 3;
+      height: 200px; /* AIFlow - small box bottom left */
+    }
+
+    #item-3 {
+      grid-row-start: 2;
+      grid-column-start: 3;
+      grid-row-end: 3;
+      grid-column-end: 4;
+      height: 200px; /* Event - small box bottom right */
+    }
+
+    #item-4 {
+      grid-row-start: 1;
+      grid-column-start: 4;
+      grid-row-end: 3;
+      grid-column-end: 5;
+      height: 500px; /* B&O Homes - tall box on right */
     }
   }
 }

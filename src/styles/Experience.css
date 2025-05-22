@@ -1,5 +1,6 @@
 .experience-section {
   padding-bottom: 3.5rem;
+  overflow: hidden;
 }
 
 .experience-container {
@@ -12,6 +13,64 @@
   margin-left: auto;
 }
 
+.experience-slider-container {
+  padding: 0 10%;
+  position: relative;
+}
+
+.experience-slider-container .slick-slide {
+  opacity: 0.3;
+  transform: scale(0.8);
+  transition: all 0.3s ease;
+}
+
+.experience-slider-container .slick-center {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.experience-slider-container .slick-dots {
+  bottom: -40px;
+}
+
+.experience-slider-container .slick-dots li button:before {
+  color: #fff;
+  opacity: 0.5;
+}
+
+.experience-slider-container .slick-dots li.slick-active button:before {
+  color: #d63447;
+  opacity: 1;
+}
+
+.experience-slider-container .slick-prev,
+.experience-slider-container .slick-next {
+  z-index: 1;
+  width: 40px;
+  height: 40px;
+}
+
+.experience-slider-container .slick-prev {
+  left: -50px;
+}
+
+.experience-slider-container .slick-next {
+  right: -50px;
+}
+
+.experience-slider-container .slick-prev:before,
+.experience-slider-container .slick-next:before {
+  color: #fff;
+  font-size: 40px;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.experience-slider-container .slick-prev:hover:before,
+.experience-slider-container .slick-next:hover:before {
+  opacity: 1;
+}
+
 .experience-item {
   background-color: #212121;
   border-radius: 8px;
@@ -21,8 +80,7 @@
   position: relative;
   width: 100%;
   max-width: 1149px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
 }
 
 .experience-item:hover {
@@ -50,12 +108,13 @@
 
 .experience-inner-bg blockquote {
   color: #fff;
-  margin: 0 0 1rem;
+  margin: 0 0 1.5rem;
+  font-size: clamp(16px, 2vw, 20px);
+  line-height: 1.6;
 }
 
 .experience-author-info {
   background-color: black;
-  /* z-index: 2; */
   margin-top: -45px;
   position: relative;
   display: flex;
@@ -69,6 +128,7 @@
 
 .experience-author-info img {
   width: 80px;
+  height: 80px;
   border-radius: 50%;
   object-fit: cover;
   border: none;
@@ -116,8 +176,59 @@
 
 @media (max-width: 991.98px) {
   .experience-inner-bg {
-    font-size: 16px;
-    line-height: 32px;
+    padding: 30px;
+    padding-bottom: 20px;
+  }
+
+  .experience-inner-bg .quote {
+    font-size: 60px;
+  }
+
+  .experience-slider-container {
+    padding: 0 5%;
+  }
+
+  .experience-slider-container .slick-prev {
+    left: -30px;
+  }
+
+  .experience-slider-container .slick-next {
+    right: -30px;
+  }
+}
+
+@media (max-width: 767px) {
+  .experience-slider-container {
+    padding: 0;
+  }
+
+  .experience-slider-container .slick-prev,
+  .experience-slider-container .slick-next {
+    display: none !important;
+  }
+
+  .experience-inner-bg {
+    padding: 20px;
+    padding-bottom: 15px;
+  }
+
+  .experience-inner-bg .quote {
+    font-size: 40px;
+  }
+
+  .experience-author-info {
+    margin-top: -45px;
+  }
+
+  .experience-author-info img {
+    width: 60px;
+    height: 60px;
+    top: -20px;
+  }
+
+  .experience-author-info h3 {
+    margin-top: 45px;
+    font-size: 18px;
   }
 }
 

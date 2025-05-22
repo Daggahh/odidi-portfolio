@@ -29,7 +29,9 @@
     "react-lazyload": "^3.2.1",
     "react-router-dom": "^6.28.0",
     "react-scripts": "^5.0.1",
+    "react-slick": "^0.30.3",
     "react-typed": "^2.0.12",
+    "slick-carousel": "^1.8.1",
     "web-vitals": "^4.2.4"
   },
   "devDependencies": {

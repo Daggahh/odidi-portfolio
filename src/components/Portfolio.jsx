@@ -129,6 +129,16 @@ function Portfolio() {
                     </motion.a>
                     <motion.a
                       href="#"
+                      onClick={(e) => handleFilterClick(e, "projects")}
+                      className={`filter-link ${
+                        activeFilter === "projects" ? "active" : ""
+                      }`}
+                      variants={itemVariants}
+                    >
+                      Projects
+                    </motion.a>
+                    <motion.a
+                      href="#"
                       onClick={(e) => handleFilterClick(e, "landing-page")}
                       className={`filter-link ${
                         activeFilter === "landing-page" ? "active" : ""
@@ -157,7 +167,9 @@ function Portfolio() {
         <div
           className={`portfolio-wrapper ${
             activeFilter === "landing-page" ? "landing-grid" : ""
-          } ${activeFilter === "exp-projects" ? "exp-grid" : ""}`}
+          } ${activeFilter === "exp-projects" ? "exp-grid" : ""} ${
+            activeFilter === "projects" ? "projects-grid" : ""
+          }`}
         >
           {filteredProjects.map((project, index) => (
             <ProjectCard

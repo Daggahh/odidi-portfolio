@@ -7,21 +7,26 @@ gsap.registerPlugin(ScrollTrigger);
 
 function ProjectCard({ project, itemId }) {
   const cardRef = useRef(null);
-
   useEffect(() => {
     const coverRed = cardRef.current.querySelector(".cover-red");
 
     gsap.fromTo(
       coverRed,
-      { x: "0%" },
       {
-        x: "102%",
-        duration: 1,
-        ease: "circ.inOut",
+        x: "-100%",
+        opacity: 1,
+      },
+      {
+        x: "100%",
+        opacity: 1,
+        duration: 1.2,
+        ease: "power2.inOut",
         scrollTrigger: {
-          trigger: coverRed,
-          start: "top 80%",
-          toggleActions: "play none none none",
+          trigger: cardRef.current,
+          start: "top 85%",
+          end: "bottom 15%",
+          toggleActions: "play none none reverse",
+          once: true,
         },
       }
     );

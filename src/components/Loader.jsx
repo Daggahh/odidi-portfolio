@@ -7,9 +7,12 @@ const Loader = ({ onComplete }) => {
   useEffect(() => {
     const timeline = gsap.timeline({
       onComplete: () => {
-        // After 2 seconds of loader animation, hide it and allow scroll
+        // After animation completes, hide loader and allow scroll
         document.body.style.overflowY = "scroll"; // Allow scrolling
-        document.querySelector(".loader").style.display = "none"; // Hide loader
+        const loader = document.querySelector(".loader");
+        if (loader) {
+          loader.style.display = "none"; // Hide loader only if it exists
+        }
         onComplete(); // Trigger onComplete callback
       },
     });
