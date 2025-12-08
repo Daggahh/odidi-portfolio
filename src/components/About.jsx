@@ -79,7 +79,7 @@ function AboutMe() {
                 <span className="cover-red-img"></span>
                 <div className="reveal-content">
                   <img
-                    src={freshboy}
+                    src="https://avatars.githubusercontent.com/u/20792824?v=4&size=64"
                     alt="About me"
                     className="img-fluid"
                     ref={imgRef} // Assigning the ref here for GSAP
