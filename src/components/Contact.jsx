@@ -213,7 +213,7 @@ const ContactSection = () => {
               <div className="form-item d-block">
                 <span className="contact-info-label">Phone</span>
                 <a href="tel:+2349160081428" className="contact-info-val">
-                  +234 916 000 81428
+                  +234 916 00 81428
                 </a>
               </div>
 
